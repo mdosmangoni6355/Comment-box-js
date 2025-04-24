@@ -12,11 +12,11 @@
         // Create a div to hold the comments section
         const div = document.createElement('div');
         div.id = 'commentsSection';
-        div.className = 'mx-auto w-1/2 min-h-[400px] border-3 border-pink-300 px-2 rounded-lg shadow-lg bg-white mt-4 mb-4';
+        div.className = 'mx-auto w-1/2 min-h-[350px] border-3 border-pink-300 px-4 rounded-lg shadow-lg bg-white mt-4 mb-4';
         document.body.appendChild(div);
         const title = document.createElement('h3');
         title.textContent = 'Comments:';
-        title.className = 'text-1xl text-pink-400 font-bold mb-4';
+        title.className = 'text-center text-1xl text-pink-400 font-bold mb-4';
         div.appendChild(title);
 
         // Create a div to hold the comment input section
@@ -53,6 +53,12 @@
             }
         
         });
+
+        // Create footer
+        const footer = document.createElement('footer');
+        footer.className = 'text-center text-gray-500 text-md mt-4 bg-[#f0eeee] font-sans p-5 text-[#333333] text-base leading-relaxed m-0 box-border';
+        footer.innerHTML = '&copy; 2K25 Md. Osman Goni. All rights reserved.';
+        document.body.appendChild(footer);
 
     </script>
 </body>
