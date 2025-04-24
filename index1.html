@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Create a div to hold the comments section
+const div = document.createElement('div');
+div.id = 'commentsSection';
+div.className = 'mx-auto w-1/2 min-h-[350px] border-3 border-pink-300 px-4 rounded-lg shadow-lg bg-white mt-4 mb-4';
+document.body.appendChild(div);
+const title = document.createElement('h3');
+title.textContent = 'Comments:';
+title.className = 'text-center text-1xl text-pink-400 font-bold mb-4';
+div.appendChild(title);
+
+// Create a div to hold the comment input section
+const div1 = document.createElement('div');
+div1.id = 'commentInputSection';
+div1.className = 'mx-auto text-center w-1/2 p-4 border-3 border-pink-300 rounded-lg shadow-lg bg-white my-6';
+document.body.appendChild(div1);
+
+// Create a textarea for the comment input
+const input = document.createElement('textarea');
+input.id = 'commentInput';
+input.placeholder = 'Write your comment here...';
+input.className = 'mx-auto min-h-[150px] w-full block border-2 border-gray-300 rounded-lg p-2';
+div1.appendChild(input);
+
+// Create a line break
+const br = document.createElement('br');
+div1.appendChild(br);
+
+// Create a button to post the comment
+const button = document.createElement('button');
+button.textContent = 'Post Comment';
+button.className = 'mx-auto bg-pink-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-pink-400';
+div1.appendChild(button);
+
+// Counter for tracking comment numbers
+let commentCounter = 0;
+
+button.addEventListener('click', function() {
+    const comment = document.getElementById('commentInput').value;
+    if (comment) {
+        commentCounter++; // Increment counter for each new comment
+        
+        // Create container for the comment
+        const commentContainer = document.createElement('div');
+        commentContainer.className = 'mb-3 p-3 border-b border-pink-200';
+        
+        // Create serial number element
+        const serialNumber = document.createElement('span');
+        serialNumber.textContent = `Post${commentCounter}: `;
+        serialNumber.className = 'font-bold text-pink-600';
+        
+        // Create comment text element
+        const commentText = document.createElement('span');
+        commentText.textContent = comment;
+        
+        // Append elements to container
+        commentContainer.appendChild(serialNumber);
+        commentContainer.appendChild(commentText);
+        
+        // Add container to comments section
+        div.appendChild(commentContainer);
+        
+        document.getElementById('commentInput').value = ''; // Clear the input
+    } else {
+        alert('Leave a comment before posting.');
+    }
+});
+
+// Create footer
+const footer = document.createElement('footer');
+footer.className = 'text-center text-gray-500 text-md mt-4 bg-[#f0eeee] font-sans p-5 text-[#333333] text-base leading-relaxed m-0 box-border';
+footer.innerHTML = '&copy; 2K25 Md. Osman Goni. All rights reserved.';
+document.body.appendChild(footer);
+    </script>
+</body>
+</html>
